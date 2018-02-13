@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {CamundaService} from '../camunda.service';
+
 
 @Component({
   selector: 'app-welcome',
@@ -7,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor() { }
+  loading: boolean;
+  public prozesse;
+  constructor(private camunda:CamundaService) { }
 
   ngOnInit() {
+
+      //this.getFoods();
+  }
+   
+    getFoods() {
+      this.loading = true;
+      this.camunda.getProcesses().subscribe((res:Response) => 
+      { 
+        this.prozesse = res.json();
+        this.loading = false;
+      },
+        err => {
+          console.error(err);
+          this.loading=false;
+        },
+        () => console.log(this.prozesse)
+      );
+    }
+  
   }
 
-}
+
