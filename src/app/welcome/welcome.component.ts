@@ -9,9 +9,15 @@ import {CamundaService} from '../camunda.service';
 })
 export class WelcomeComponent implements OnInit {
 
+  gotData(): any {
+    this.loading = false;
+    
+  }
+
+
   loading: boolean;
   public prozesse;
-  constructor(private camunda:CamundaService) { }
+  constructor(private _camunda:CamundaService) { }
 
   ngOnInit() {
 
@@ -20,18 +26,21 @@ export class WelcomeComponent implements OnInit {
    
     getFoods() {
       this.loading = true;
-      this.camunda.getProcesses().subscribe((res:Response) => 
-      { 
-        this.prozesse = res.json();
-        this.loading = false;
-      },
+      
+      this._camunda.getProcesses().subscribe(
+        data => {
+        console.log(data);
+        this.prozesse = data;
+        }, 
         err => {
-          console.error(err);
-          this.loading=false;
+          console.log(err);
         },
-        () => console.log(this.prozesse)
+        () => this.gotData()
       );
-    }
+  }
+
+      
+    
   
   }
 
