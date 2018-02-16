@@ -27,7 +27,7 @@ import { AppSetting } from './app-setting';
     HttpClientModule,
     HttpModule
   ],
-  providers: [CamundaService,AppSetting],
+  providers: [CamundaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,15 +6,15 @@ import { environment } from '../environments/environment';
 
 
 const httpOptions = {
-  headers: new HttpHeaders({ 
+  headers: new HttpHeaders({
   'Content-Type': 'application/json',
-  'Access-Control-Allow-Origin':'*',
+  'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods' : 'POST, GET, OPTIONS, PUT'
   })
 };
 
 const camundaip = 'http://192.168.99.100:8080/engine-rest/';
-const camundaip_processes = 'process-definition?latest=true&active=true'
+const camundaip_processes = 'process-definition?latest=true&active=true';
 
 @Injectable()
 export class CamundaService{
@@ -30,11 +30,20 @@ export class CamundaService{
   //   //return this.http.get('http://192.168.99.100:8080/engine-rest/process-definition?latest=true&active=true');
   // }
 
+  ngOnInit(): void {
+    this.appSettingsService.getSettings()
+      .subscribe(settings => this.settings = settings,
+        () => null,
+        () => {
+
+          this.product.url = this.settings.camundaURL;
+        });
+  }
   handleError(arg0: any): any {
-    throw new Error("Method not implemented.");
+    throw new Error('Method not implemented.');
   }
 
-  getProcesses(){
+  getProcesses() {
 
   
     
@@ -44,7 +53,7 @@ export class CamundaService{
     .set('Access-Control-Allow-Methods' , 'POST, GET, OPTIONS, PUT');
 
 
-   
+
     return this._http.get(remote,{
             headers: headers,
 		        responseType: 'json'
