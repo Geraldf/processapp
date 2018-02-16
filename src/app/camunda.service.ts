@@ -30,18 +30,7 @@ export class CamundaService{
   //   //return this.http.get('http://192.168.99.100:8080/engine-rest/process-definition?latest=true&active=true');
   // }
 
-  ngOnInit(): void {
-    this.appSettingsService.getSettings()
-      .subscribe(settings => this.settings = settings,
-        () => null,
-        () => {
-
-          this.product.url = this.settings.camundaURL;
-        });
-  }
-  handleError(arg0: any): any {
-    throw new Error('Method not implemented.');
-  }
+ 
 
   getProcesses() {
 
