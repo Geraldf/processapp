@@ -21,7 +21,7 @@ export class WelcomeComponent implements OnInit {
 
   ngOnInit() {
 
-      //this.getFoods();
+      this.getFoods();
   }
    
     getFoods() {

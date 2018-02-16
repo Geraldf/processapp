@@ -1,4 +1,12 @@
 <h2>Basic Request</h2>
-<button type="button" (click)="getFoods()">Make Request</button>
 <div *ngIf="loading">loading...</div>
-<pre>Data Obtained is: {{ prozesse | json }}</pre>
+<div class="row">
+
+  <div class="col-4"  *ngFor="let process of prozesse">
+      {{process.name}}
+  </div>
+</div>
+
+  <pre>Data Obtained is: {{ prozesse | json }}</pre>
+
+
