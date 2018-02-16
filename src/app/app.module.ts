@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';  // replaces previous H
 import { HttpModule } from '@angular/http';
 import { ProcessesComponent } from './processes/processes.component';
 import { CamundaService } from './camunda.service';
+import { BpmnviewerComponent } from './bpmnviewer/bpmnviewer.component';
 
 
 
@@ -19,7 +20,8 @@ import { CamundaService } from './camunda.service';
     AppComponent,
     WelcomeComponent,
     Page404Component,
-    ProcessesComponent
+    ProcessesComponent,
+    BpmnviewerComponent
   ],
   imports: [
     BrowserModule,
