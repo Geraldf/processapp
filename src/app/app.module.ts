@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';  // replaces previous H
 import { HttpModule } from '@angular/http';
 import { ProcessesComponent } from './processes/processes.component';
 import { CamundaService } from './camunda.service';
+import { AppSetting } from './app-setting';
 
 
 
@@ -26,7 +27,7 @@ import { CamundaService } from './camunda.service';
     HttpClientModule,
     HttpModule
   ],
-  providers: [CamundaService],
+  providers: [CamundaService,AppSetting],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
