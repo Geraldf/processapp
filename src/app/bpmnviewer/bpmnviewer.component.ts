@@ -1,20 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 
+import * as bpmn from '../../../node_modules/bpmn-js/lib/NavigatedViewer.js';
 
-import 'bpmn-js';
 
-const bpmn = require("bpmn-js");
 
 @Component({
-  selector: 'app-bpmnviewer',
+  selector: 'app-bpmn',
   templateUrl: './bpmnviewer.component.html',
   styleUrls: ['./bpmnviewer.component.css']
 })
 export class BpmnviewerComponent implements OnInit {
 
   viewer: any;
-    title: string = 'Angular 2 with BPMN-JS';
+    title: String = 'Angular 2 with BPMN-JS';
 
     constructor(private http: Http) {
     }
@@ -33,7 +32,7 @@ export class BpmnviewerComponent implements OnInit {
     }
 
     loadSampleBPMN() {
-        const url = '/diagrams/pizza-collaboration.bpmn';
+        const url = '../../assets/mitarbeiterBestimmen.bpmn';
         this.http.get(url)
             .toPromise()
             .then(response => response.text())

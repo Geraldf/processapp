@@ -11,27 +11,27 @@ export class WelcomeComponent implements OnInit {
 
   gotData(): any {
     this.loading = false;
-    
+
   }
 
 
   loading: boolean;
   public prozesse;
-  constructor(private _camunda:CamundaService) { }
+  constructor(private _camunda: CamundaService) { }
 
   ngOnInit() {
 
       this.getFoods();
   }
-   
+
     getFoods() {
       this.loading = true;
-      
+
       this._camunda.getProcesses().subscribe(
         data => {
         console.log(data);
         this.prozesse = data;
-        }, 
+        },
         err => {
           console.log(err);
         },
@@ -39,9 +39,9 @@ export class WelcomeComponent implements OnInit {
       );
   }
 
-      
-    
-  
+
+
+
   }
 
 
