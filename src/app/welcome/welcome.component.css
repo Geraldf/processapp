@@ -1,0 +1,16 @@
+#canvas {
+
+  top: 0;
+  left: 0;
+  width: 250px;
+  height:50px;
+}
+
+.viewport {
+
+    top: 0;
+    left: 0;
+    width: 250px;
+    height:50px;
+  }
+  

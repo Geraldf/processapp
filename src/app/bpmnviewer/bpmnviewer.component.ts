@@ -19,8 +19,14 @@ export class BpmnviewerComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.viewer = new bpmn({container: '#canvas'});
+        this.getViewer();
         this.loadSampleBPMN();
+    }
+
+    private getViewer() {
+        this.viewer = new bpmn({
+            container: '#canvas'
+        });
     }
 
     handleError(err: any) {
@@ -36,7 +42,11 @@ export class BpmnviewerComponent implements OnInit {
         this.http.get(url)
             .toPromise()
             .then(response => response.text())
-            .then(data => this.viewer.importXML(data, this.handleError))
+            .then(data => 
+                {
+                    this.viewer.importXML(data, this.handleError);
+                   // this.viewer.zoom(-50);
+                })
             .catch(this.handleError);
 }
 }

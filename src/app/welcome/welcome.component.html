@@ -1,9 +1,10 @@
 <h2>Basic Request</h2>
 <div *ngIf="loading">loading...</div>
-<div class="row">
 
-  <div class="col-4"  *ngFor="let process of prozesse">
-      {{process.name}}
+<div class="card-deck">
+  <div class="card"  *ngFor="let process of prozesse">
+      <div class="card-title">  {{process.name}} </div>
+  
   </div>
 </div>
 <app-bpmn></app-bpmn>
